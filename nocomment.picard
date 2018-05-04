@@ -1,0 +1,24 @@
+$set(MainFolder1,-= $upper($left(%albumartist%,1)) =-/)
+$set(MainFolder2,-= $upper($left(%albumartistsort%,1)) =-/)
+$set(MainFolder3,$upper($left(%albumartist%,1))/)
+$set(MainFolder4,)
+$set(Artist1,$replace($rreplace(%albumartist%,[_:*?"<>|],-),?,)/)
+$set(Artist2,$replace($rreplace(%albumartistsort%,[_:*?"<>|],-),?,)/)
+$set(Album1,$replace($rreplace(%album%,[_:*?"<>|], -),?,)$if(%date%,$if(%album%, )[$left(%date%,4)])/)
+$set(Album2,$replace($rreplace(%album%,[_:*?"<>|], -),?,)/)
+$set(MultiDisc1,$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,1)/)
+$set(MultiDisc2,)
+$set(PreTitle1,$replace($rreplace(%albumartist% - %album% -,[_:*?"<>|], -),?,))
+$set(PreTitle2,)
+$set(Track1, $num(%tracknumber%,2) - )
+$set(Track2, $num(%discnumber%,1)-$num(%tracknumber%,2) - ))
+$set(Title,$replace($rreplace(%title%,[_:*?"<>|],),?,))
+
+
+%MainFolder1%
+%Artist1%
+%Album1%
+%MultiDisc1%
+%PreTitle1%
+%Track1%
+%Title%
