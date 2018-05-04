@@ -1,0 +1,35 @@
+$noop( picard-script par Rickey Mandraque depuis la source: https://community.metabrainz.org/t/repository-for-neat-file-name-string-patterns-and-tagger-script-snippets/2786/24 )
+
+
+$noop( *** NE MODIFIEZ PAS LA ZONE CI-DESSOUS | LA ZONE MODIFIABLE SERA PLUS BAS *** )
+			$set(MainFolder1,-= $upper($left(%albumartist%,1)) =-/)
+			$set(MainFolder2,-= $upper($left(%albumartistsort%,1)) =-/)
+			$set(MainFolder3,$upper($left(%albumartist%,1))/)
+			$set(MainFolder4,)
+			$set(Artist1,$replace($rreplace(%albumartist%,[_:*?"<>|],-),?,)/)
+			$set(Artist2,$replace($rreplace(%albumartistsort%,[_:*?"<>|],-),?,)/)
+			$set(Album1,$replace($rreplace(%album%,[_:*?"<>|], -),?,)$if(%date%,$if(%album%, )[$left(%date%,4)])/)
+			$set(Album2,$replace($rreplace(%album%,[_:*?"<>|], -),?,)/)
+			$set(MultiDisc1,$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,1)/)
+			$set(MultiDisc2,)
+			$set(PreTitle1,$replace($rreplace(%albumartist% - %album% -,[_:*?"<>|], -),?,))
+			$set(PreTitle2,)
+			$set(Track1, $num(%tracknumber%,2) - )
+			$set(Track2, $num(%discnumber%,1)-$num(%tracknumber%,2) - ))
+			$set(Title,$replace($rreplace(%title%,[_:*?"<>|],),?,))
+$noop( *** NE MODIFIEZ PAS LA ZONE CI-DESSOUS | LA ZONE MODIFIABLE SERA PLUS BAS *** )
+
+
+
+
+$noop( *** Le suivant utilisera l'exemple de cette artiste: Amy Winehouse and album: Back to Black *** )
+$noop( *** Sortie par défaut: -=A =-/Amy Winehouse/Back to Black [2007]/Disc 1/Amy Winehouse - Back to Black - 01 - Rehab *** )
+$noop( *** Changez la valeur NUMERIQUE UNIQUEMENT! Exemple:%MainFolder1% sera remplacé par %MainFolder2% *** )
+$noop( *** Changez seulement la valeur numérique en 1 ou 2, n'importe quoi d'autre va mettre la pagaille. *** )
+%MainFolder1%	$noop( OPTION 1 -= A=- | OPTION 2 -= W =- | OPTION 3 A | OPTION 4 = Aucun dossier avec un seul caractère uniquement ne sera créé. )
+%Artist1%			$noop( OPTION 1 = Amy WineHouse| OPTION 2 = Winehouse, Amy )
+%Album1%			$noop( OPTION 1 = Back to Black [2007] | OPTION 2 = Back to Black )
+%MultiDisc1%		$noop(OPTION 1 = Si l'album a plus d'un disque, alors ajouter des dossiers de disque | OPTION 2 = Ne pas trier par disque, mettre tous les fichiers dans un seul dossier.)
+%PreTitle1%		$noop(OPTION 1 = Afficher l'artiste et l'album dans le titre de la piste | OPTION 2 = Ne pas afficher l'artiste ou l'album)
+%Track1%			$noop(OPTION 1 = Numéro de piste: 01 | OPTION 2: Numéro de piste: 1-01-> C'est mieux si MultiDisc est réglé sur 2, car vous aurez 2 numéros de piste comme 01 - * noms de piste *, etc.)
+%Title%				$noop(PAS D'OPTION - Il suffit d'afficher le nom de la piste.)
