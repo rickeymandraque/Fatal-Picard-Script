@@ -1,0 +1,107 @@
+```taggerscript
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★                                    ULTIMATE renaming script BY RICKEY MANDRAQUE                                  ★)
+$noop(★                                          Plugins Needed: islossless.py                                           ★)
+$noop(★                                Forked from Ski-lleR’s script and FragaGeddon's script                            ★)
+$noop(★        ki-lleR’s script: (https://github.com/Ski-lleR/Snippets/wiki/Renaming-script-for-MusicBrainz-Picard)      ★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★                    *** NE MODIFIEZ PAS LA ZONE CI-DESSOUS | LA ZONE MODIFIABLE SERA PLUS BAS ***                 ★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$set(Quality1,$if($is_lossless(),Lossless,Lossy)/)                                                                 $noop(★)
+$set(Quality2,)                                                                                                    $noop(★)
+$set(MainFolder1,-= $upper($left(%albumartist%,1)) =-/)                                                            $noop(★)
+$set(MainFolder2,-= $upper($left(%albumartistsort%,1)) =-/)                                                        $noop(★)
+$set(MainFolder3,$upper($left(%albumartist%,1))/)                                                                  $noop(★)
+$set(MainFolder4,$upper($left(%albumartistsort%,1))/)                                                              $noop(★)
+$set(MainFolder5,)                                                                                                 $noop(★)
+$set(Artist1,$replace($rreplace(%albumartist%,[_:*?"<>|],-),?,)/)                                                  $noop(★)
+$set(Artist2,$replace($rreplace(%albumartistsort%,[_:*?"<>|],-),?,)/)                                              $noop(★)
+$set(TypeRelease0,)                                                                                                $noop(★)
+$set(TypeRelease1,$if(%releasetype%,$if(%album%, )$upper(%releasetype%))/)                                         $noop(★)
+$set(StatusRelease0,)                                                                                              $noop(★)
+$set(StatusRelease1,$if(%releasestatus%,$if(%album%, )%releasestatus%)/)                                           $noop(★)
+$set(Album1,$replace($rreplace(%album%,[_:*?"<>|], -),?,)$if(%date%,$if(%album%, )[$left(%date%,4)]))              $noop(★)
+$set(Album2,$replace($rreplace(%album%,[_:*?"<>|], -),?,))                                                         $noop(★)
+$set(Album3,$if(%date%,$if(%album%, )$left(%date%,4))/$replace($rreplace(%album%,[_:*?"<>|], -),?,))               $noop(★)
+$set(EANCode1, $if(%barcode%,$if(%album%, )[$left(%barcode%,4)])/)                                                 $noop(★)
+$set(EANCode2,/$if(%barcode%,$if(%album%, )%barcode%)/)                                                            $noop(★)
+$set(EANCode3,/)                                                                                                   $noop(★)
+$set(MultiDisc1,$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,1)/)                                                $noop(★)
+$set(MultiDisc2,$if($gt(%totaldiscs%,1),%discnumber%-,))                                                           $noop(★)
+$set(MultiDisc3,)                                                                                                  $noop(★)
+$set(PreTitle1,$replace($rreplace(%albumartist% - %album% -,[_:*?"<>|], -),?,))                                    $noop(★)
+$set(PreTitle2,)                                                                                                   $noop(★)
+$set(Track0,)                                                                                                      $noop(★)
+$set(Track1, $num(%tracknumber%,2) - )                                                                             $noop(★)
+$set(Track2, $num(%discnumber%,1)-$num(%tracknumber%,2) - ))                                                       $noop(★)
+$set(Title,$replace($rreplace(%title%,[_:*?"<>|],),?,))                                                            $noop(★)
+$noop(à implementer)
+$noop(★ Track. Title ★)
+$noop(
+$if($in(%media%,Vinyl),$noop(
+  )$if($eq(%_useMusicBrainzStyleForVinylTrack%,1),$noop(
+    )$if(%_musicbrainz_tracknumber%,%_musicbrainz_tracknumber%. )$noop(
+  )),$noop(
+  )$if(%tracknumber%,$if($gt(%totaldiscs%,1),$if($and($eq(%_useSubDiscFolder%,0),$eq(%_mergeDiscWhenNotUsingSubfolder%,1)),%discnumber%))$num(%tracknumber%,2). )
+)
+%_titleForFilename%)
+
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★                    *** NE MODIFIEZ PAS LA ZONE CI-DESSUS | LA ZONE MODIFIABLE SERA PLUS BAS ***                  ★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+$noop(★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★)
+
+
+
+%Quality1%        $noop(
+                           OPTION 1 un dossier Lossless ou Lossly sera créer |
+                           OPTION 2 = Aucun dossier ne sera créé. )
+
+%MainFolder4%      $noop(
+                          OPTION 1 un dossier du type -= A=- sera créer à partir du nom du groupe avec l'article The; le; la; les. ex: A Chemical Romance => MyMusic/-= A=-/A Chemical Romance/ |
+                          OPTION 2 un dossier du type -= W =- sera créer à partir du nom du groupe sans l'article The; le; la; les. ex: The Wriggles => MyMusic/-= W =-/The Wriggles  |
+                          OPTION 3 A identique a l'OPTION 1 |
+                          OPTION 4 A identique a l'OPTION 2.  |
+                          OPTION 5 Aucun dossier avec un seul caractère uniquement ne sera créé. )
+
+%Artist1%          $noop(
+                          OPTION 1 = Amy WineHouse
+                          OPTION 2 = Winehouse, Amy                             )
+%StatusRelease1%   $noop(
+                          OPTION 0 = disabled
+                          OPTION 1 = enabled                                    )
+%TypeRelease1%    $noop(
+                          OPTION 0 = disabled
+                          OPTION 1 = enabled                                    )
+
+%Album3%          $noop(
+                          OPTION 1 = Back to Black [2007]
+                          OPTION 2 = Back to Black
+                          OPTION 3 = 2007/Back to Black                          )
+%EANCode2%        $noop(
+                          OPTION 1 = code barre a coté du titre de l'album
+                          OPTION 2 = code barre dans un dossier
+                          OPTION 3 = pas de code barre                          )
+%MultiDisc2%      $noop(
+                          OPTION 1 = Si l'album a plus d'un disque, alors ajouter des dossiers de disque
+                          OPTION 2 = Si l'album a plus d'un disque, alors ajouter le numéro du disque au début du nom de fichier
+                          OPTION 3 = Ne pas trier par disque, mettre tous les fichiers dans un seul dossier sans numérotation.
+                                                                                )
+%PreTitle2%        $noop(
+                          OPTION 1 = Afficher l'artiste et l'album dans le titre de la piste
+                          OPTION 2 = Ne pas afficher l'artiste ou l'%album%      )
+%Track2%          $noop(
+                          OPTION 0 = pas de numéros de piste
+                          OPTION 1 = Numéro de piste: 01
+                          OPTION 2: Numéro de piste: 1-01-> C'est mieux si MultiDisc est réglé sur 2, car vous aurez 2 numéros de piste comme 01 - * noms de piste *, etc.
+                                                                                )
+%Title%            $noop(
+                          PAS D'OPTION - Il suffit d'afficher le nom de la piste.)
+%MainComment1%
+```
