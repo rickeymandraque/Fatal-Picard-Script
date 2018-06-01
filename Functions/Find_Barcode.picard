@@ -1,0 +1,5 @@
+$noop(################ FIND BARCODE ################)
+$set(EANCode0,/)
+$set(EANCode1,$if(%barcode%,$if(%album%, )[%barcode%])/)
+$set(EANCode2,/$if(%barcode%,$if(%album%, )%barcode%)/)
+$noop(################ END OF FIND BARCODE ################)
