@@ -1,0 +1,6 @@
+$noop(################ FIND EXTENSION ################)
+$set(_DirExt0,)
+$set(_DirExt1,$if($in(%_extension%,wma),)$upper(%_extension%)/)
+$set(_DirExt2,$if($in(%_extension%,wma),)$lower(%_extension%)/)
+$set(_DirExt2,$if($in(%_extension%,wma),)
+$noop(################ END OF FIND EXTENSION ################)
