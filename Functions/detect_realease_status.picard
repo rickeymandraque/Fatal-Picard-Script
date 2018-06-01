@@ -1,0 +1,16 @@
+$noop(########## DETECT RELEASE STATUS ###############################)
+$if($eq(%releasestatus%,official),
+   $set(_isOfficial,1)
+)
+$if($eq(%releasestatus%,promotional),
+   $set(_isPromo,1)
+)
+
+$if($eq(%releasestatus%,bootleg),
+   $set(_isBootleg,1)
+)
+
+$if($eq(%releasestatus%,pseudo-release),
+   $set(_isPseudoR,1)
+)
+$noop(########## END OF DETECT RELEASE STATUS ###############################)
