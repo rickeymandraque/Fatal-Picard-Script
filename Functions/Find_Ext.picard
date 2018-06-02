@@ -1,4 +1,5 @@
 $noop(################ FIND EXTENSION ################)
+$noop(★ In Picard 1.3.2 the wma extension is not recognized ★)
 $set(_DirExt0,)
 $set(_DirExt1,$if($in(%_extension%,wma),)$upper(%_extension%)/)
 $set(_DirExt2,$if($in(%_extension%,wma),)$lower(%_extension%)/)
