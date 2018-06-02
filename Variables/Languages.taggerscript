@@ -1,0 +1,17 @@
+$noop(################ LANGUAGE SELECTION ################)
+$noop(★ EDIT THIS TO SET LANGUAGE ★)
+$set(_LangScript,FR)
+$noop(
+OPTION:
+EN = ENGLISH
+FR = FRANÇAIS
+ES = ESPAÑOL
+PT = PORTUGUÊS
+DE = DEUTCH
+NL = NEDERLANDS
+IT = ITALIANO
+)
+$noop(############# Not Implemented #################
+
+)
+$noop(################ END OF LANGUAGE SELECTION ################)
