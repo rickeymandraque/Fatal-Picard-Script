@@ -1,0 +1,59 @@
+$noop(################ SEARCH BITRATE ################)
+$noop($set(_numbr,$left(%_bitrate%,3)))
+$set(BitrateNumber0,)
+$set(BitrateNumber1,$if($eq(%_bitrate%,320.0),
+$set(_folderbr,320),
+$if($eq(%_bitrate%,256.0),$set(_folderbr,256),
+$if($eq(%_bitrate%,192.0),$set(_folderbr,192),
+$if($eq(%_bitrate%,160.0),$set(_folderbr,160),
+$if($eq(%_bitrate%,128.0),$set(_folderbr,128),
+$if($eq(%_bitrate%,64.0),$set(_folderbr,64)))))))
+$if(%_folderbr%,,
+$if($gte(%_numbr%,220),$set(_folderbr,V0),
+$if($lt(%_numbr%,220),$set(_folderbr,V2),
+$set(_folderbr,Err1)
+)))
+$if($eq($upper(%_extension%),MP3), [%_folderbr%K]))
+
+$set(BitrateNumber2,$if($eq(%_bitrate%,320.0),
+$set(_folderbr,320),
+$if($eq(%_bitrate%,256.0),$set(_folderbr,256),
+$if($eq(%_bitrate%,192.0),$set(_folderbr,192),
+$if($eq(%_bitrate%,160.0),$set(_folderbr,160),
+$if($eq(%_bitrate%,128.0),$set(_folderbr,128),
+$if($eq(%_bitrate%,64.0),$set(_folderbr,64)))))))
+$if(%_folderbr%,,
+$if($gte(%_numbr%,220),$set(_folderbr,V0),
+$if($lt(%_numbr%,220),$set(_folderbr,V2),
+$set(_folderbr,Err1)
+)))
+$if($eq($upper(%_extension%),MP3),/%_folderbr%K))
+
+$set(BitrateNumber3,$if($eq(%_bitrate%,320.0),
+$set(_folderbr,320),
+$if($eq(%_bitrate%,256.0),$set(_folderbr,256),
+$if($eq(%_bitrate%,192.0),$set(_folderbr,192),
+$if($eq(%_bitrate%,160.0),$set(_folderbr,160),
+$if($eq(%_bitrate%,128.0),$set(_folderbr,128),
+$if($eq(%_bitrate%,64.0),$set(_folderbr,64)))))))
+$if(%_folderbr%,,
+$if($gte(%_numbr%,220),$set(_folderbr,V0),
+$if($lt(%_numbr%,220),$set(_folderbr,V2),
+$set(_folderbr,Err1)
+)))
+$if($eq($upper(%_extension%),MP3), [%_folderbr%K %_sample_rate% %_channels%]))
+
+$set(BitrateNumber4,$if($eq(%_bitrate%,320.0),
+$set(_folderbr,320),
+$if($eq(%_bitrate%,256.0),$set(_folderbr,256),
+$if($eq(%_bitrate%,192.0),$set(_folderbr,192),
+$if($eq(%_bitrate%,160.0),$set(_folderbr,160),
+$if($eq(%_bitrate%,128.0),$set(_folderbr,128),
+$if($eq(%_bitrate%,64.0),$set(_folderbr,64)))))))
+$if(%_folderbr%,,
+$if($gte(%_numbr%,220),$set(_folderbr,V0),
+$if($lt(%_numbr%,220),$set(_folderbr,V2),
+$set(_folderbr,Err1)
+)))
+$if($eq($upper(%_extension%),MP3),/[%_folderbr%K - %_sample_rate% %_channels%]))
+$noop(################ END OF SEARCH BITRATE ################)
