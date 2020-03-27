@@ -1,0 +1,13 @@
+$noop(################ BITRATE TYPE DETECTION ################)
+$set(BRType,$if($eq_any(%_bitrate%,320.0,256.0,224.0,192.0,160.0,128.0,112.0,96.0,80.0,64.0,56.0,48.0,40.0,32.0,24.0,16.0,8.0),CBR,VBR))
+$if($eq(%BRType%,VBR),$set(BrVBR,$left(%_bitrate%,3)))
+$if($eq($upper(%_extension%),WMA), 
+	$if($eq(%BRType%,VBR),
+			$if($gte(%BrVBR%,256),$set(wmatype,VBR),
+			$if($lt(%BrVBR%,192),$set(wmatype,VBR),
+			$if($lt(%BrVBR%,128),$set(wmatype,VBR),
+			$if($lt(%BrVBR%,96),$set(wmatype,VBR),
+			$if($lt(%BrVBR%,80),$set(wmatype,VBR),
+			))))))
+	$if($not(%wmatype%),$set(wmatype,CBR)))
+$noop(################ END OF BITRATE TYPE DETECTION ################)
