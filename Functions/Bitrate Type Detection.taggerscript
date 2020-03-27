@@ -10,4 +10,6 @@ $if($eq($upper(%_extension%),WMA),
 			$if($lt(%BrVBR%,80),$set(wmatype,VBR),
 			))))))
 	$if($not(%wmatype%),$set(wmatype,CBR)))
+$if($eq($upper(%_extension%),WMA),$set(_BRType,%wmatype%),)
+$if($not(%_BRType%),$set(_BRType,%BRType%))
 $noop(################ END OF BITRATE TYPE DETECTION ################)
